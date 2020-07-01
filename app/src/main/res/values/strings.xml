@@ -1,0 +1,19 @@
+<resources>
+    <string name="app_name">MyInternship</string>
+    <string name="login">Login</string>
+    <string name="register">Register</string>
+    <string name="npisid">NPISID</string>
+    <string name="password">Password</string>
+    <string name="passwrod">Passwrod</string>
+    <string name="school_email">School-Email</string>
+    <string name="signup">SIGNUP</string>
+    <string-array name="course_list">
+        <item>a</item>
+        <item>b</item>
+        <item>c</item>
+        <item>d</item>
+        <item>e</item>
+        <item>f</item>
+        <item>g</item>
+    </string-array>
+</resources>
