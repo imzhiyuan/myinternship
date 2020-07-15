@@ -25,7 +25,7 @@ class MainActivity : AppCompatActivity() {
 
         Login.setOnClickListener {
            val queue = Volley.newRequestQueue(this)
-            val url = "https://script.google.com/macros/s/AKfycbyTqKi2dvNtM4G0mIE5_oya2_SO7gl5vUYEWxf16RkxJ5G-sNE/exec"
+            val url = "https://script.google.com/macros/s/AKfycbxYiyQINZs7xWTGIcF_ZQOaVuBNT46dQN_Q8NQ23xecMsMJCT4i/exec"
 
             val stringRequest = object: StringRequest(
                 Request.Method.POST, url,

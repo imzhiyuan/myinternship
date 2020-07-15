@@ -58,7 +58,7 @@ class RegisterActivity : AppCompatActivity() {
         // sent data to sever when button pressed
         Register.setOnClickListener {
             val queue = Volley.newRequestQueue(this)
-            val url = "https://script.google.com/macros/s/AKfycbwesIpox7baQaH7TMba_MiUnp6xI6D2DKp6RL-e16_GYDX_R4s/exec"
+            val url = "https://script.google.com/macros/s/AKfycbxYiyQINZs7xWTGIcF_ZQOaVuBNT46dQN_Q8NQ23xecMsMJCT4i/exec"
 
             if (regmail.text.toString().matches(mailpattern)) {
                 txt3.text = regmail.text.toString()

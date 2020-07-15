@@ -8,12 +8,10 @@
     <string name="school_email">School-Email</string>
     <string name="signup">SIGNUP</string>
     <string-array name="course_list">
-        <item>a</item>
-        <item>b</item>
-        <item>c</item>
-        <item>d</item>
-        <item>e</item>
-        <item>f</item>
-        <item>g</item>
+        <item>FMS</item>
+        <item>HS</item>
+        <item>ICT</item>
+        <item>LSCT</item>
+        <item>SOE</item>
     </string-array>
 </resources>

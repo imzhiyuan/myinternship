@@ -7,6 +7,7 @@ import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
+import kotlinx.android.synthetic.main.activity_login.*
 import kotlinx.android.synthetic.main.activity_register.*
 
 class LoginActivity : AppCompatActivity() {
@@ -14,27 +15,17 @@ class LoginActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
-        var test = null
 
-        val queue = Volley.newRequestQueue(this)
-        val url = "https://script.google.com/macros/s/AKfycbyTqKi2dvNtM4G0mIE5_oya2_SO7gl5vUYEWxf16RkxJ5G-sNE/exec"
+        val myWebView: WebView = findViewById(R.id.webview)
+        myWebView.settings.javaScriptEnabled = true
 
-            val stringRequest = object: StringRequest(
-                Request.Method.GET, url,
-                Response.Listener<String> {response ->
-                    test = response
-                },
-                Response.ErrorListener {}) {
-                override fun getParams(): Map<String, String> {
-                    val params: MutableMap<String, String> = HashMap()
-                    params["action"] = "testgraphs"
+        Overall.setOnClickListener {
 
-                    return params
-                }
-            }
-            queue.add(stringRequest)
+            val url = "https://www.google.com/"
+
+            myWebView.loadUrl( url)
 
 
-
+        }
     }
 }
