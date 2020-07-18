@@ -34,6 +34,5 @@ class ReadReflectActivity : AppCompatActivity() {
             }
 
         }
-        date.text = datedata.toString()
     }
 }
