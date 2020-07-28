@@ -31,7 +31,7 @@ class MainActivity : AppCompatActivity() {
         val Shared:Shared= Shared(this)
         val loginid = findViewById<EditText>(R.id.LoginID)
         val loginpw = findViewById<EditText>(R.id.LoginPW)
-        val txt = findViewById<TextView>(R.id.txtview)
+
 
         Login.setOnClickListener {
            val queue = Volley.newRequestQueue(this)
@@ -44,10 +44,21 @@ class MainActivity : AppCompatActivity() {
                     idcheck = response.toString()
                     //txt2.text = idcheck (use for checking only)
                     //checking that pw and id if same login
+                    if(loginpw.text.toString() == "" || loginid.text.toString() == "" ){
+
+                        Toast.makeText(
+                            applicationContext,
+                            "Enter all the blanks", Toast.LENGTH_SHORT)
+                            .show()
+
+                    }
                     if ( loginpw.text.toString() == Shared.getValueString("pw") && idcheck == "Id found " && loginid.text.toString() == Shared.getValueString("id")  ) {
                         startActivity(Intent(this, LoginActivity::class.java))
                     }else(
-                            txt.setText("Wrong password or npisid ")
+                            Toast.makeText(
+                                applicationContext,
+                                "Wrong password or npisid", Toast.LENGTH_SHORT)
+                                .show()
                             )
                 },
                Response.ErrorListener { /*textView.text = "That didn't work!"*/ }) {

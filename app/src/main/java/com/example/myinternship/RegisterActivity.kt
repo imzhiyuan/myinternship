@@ -3,10 +3,7 @@ package com.example.myinternship
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
-import android.widget.AdapterView
-import android.widget.ArrayAdapter
-import android.widget.EditText
-import android.widget.Spinner
+import android.widget.*
 import androidx.appcompat.app.AppCompatActivity
 import com.android.volley.Request
 import com.android.volley.Response
@@ -70,28 +67,46 @@ class RegisterActivity : AppCompatActivity() {
             val queue = Volley.newRequestQueue(this)
             val url = "https://script.google.com/macros/s/AKfycbzHVvfi0NTe4cg18QqNcBsitSI2_Xzdp-XeJy7lZIax26T6WXe9/exec"
 
-            if (regmail.text.toString().matches(mailpattern)) {
-                txt3.text = regmail.text.toString()
+                if ((regmail.text.toString() == "") || (regid.text.toString() == "") || (regpw.text.toString() == "") ){
 
-                val stringRequest = object: StringRequest(
-                    Request.Method.POST, url,
-                    Response.Listener<String> {
-                        startActivity(Intent(this,MainActivity::class.java))
-                    },
-                    Response.ErrorListener {}) {
-                    override fun getParams(): Map<String, String> {
-                        val params: MutableMap<String, String> = HashMap()
-                        params["action"] = "RegisterNPIS"
-                        params["NPISID"] = regid.text.toString()
-                        params["COURSE"] = regcourse
-                        params["EMAIL"]  = regmail.text.toString()
-                        return params
-                    }
+                    Toast.makeText(
+                        applicationContext,
+                        "Please enter all the blanks", Toast.LENGTH_SHORT)
+                        .show()
+
                 }
-                queue.add(stringRequest)
-            } else {
-                RegMail.setText("")
-            }
+                if (regmail.text.toString().matches(mailpattern)) {
+
+                    val stringRequest = object : StringRequest(
+                        Request.Method.POST, url,
+                        Response.Listener<String> {
+                            startActivity(Intent(this, MainActivity::class.java))
+                            Toast.makeText(
+                                applicationContext,
+                                "Register Successful", Toast.LENGTH_SHORT
+                            )
+                                .show()
+                        },
+                        Response.ErrorListener {}) {
+                        override fun getParams(): Map<String, String> {
+                            val params: MutableMap<String, String> = HashMap()
+                            params["action"] = "RegisterNPIS"
+                            params["NPISID"] = regid.text.toString()
+                            params["COURSE"] = regcourse
+                            params["EMAIL"] = regmail.text.toString()
+                            return params
+                        }
+                    }
+                    queue.add(stringRequest)
+                } else {
+                    RegMail.setText("")
+                    Toast.makeText(
+                        applicationContext,
+                        "Please enter valid email address", Toast.LENGTH_SHORT
+                    )
+                        .show()
+                }
+
     }
 }
 }
