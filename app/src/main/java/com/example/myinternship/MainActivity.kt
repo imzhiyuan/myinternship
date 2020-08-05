@@ -35,7 +35,7 @@ class MainActivity : AppCompatActivity() {
 
         Login.setOnClickListener {
            val queue = Volley.newRequestQueue(this)
-            val url = "https://script.google.com/macros/s/AKfycbzHVvfi0NTe4cg18QqNcBsitSI2_Xzdp-XeJy7lZIax26T6WXe9/exec"
+            val url = "https://script.google.com/macros/s/AKfycbxi47Ee3vq94_lU5-46wwLf2qV2bHUdFg0O-l4QOYk2qKgHy0Y/exec"
 
             val stringRequest = object: StringRequest(
                 Request.Method.POST, url,
@@ -51,15 +51,16 @@ class MainActivity : AppCompatActivity() {
                             "Enter all the blanks", Toast.LENGTH_SHORT)
                             .show()
 
+                    }else{
+                        if ( loginpw.text.toString() == Shared.getValueString("pw") && idcheck == "Id found " && loginid.text.toString() == Shared.getValueString("id")  ) {
+                            startActivity(Intent(this, LoginActivity::class.java))
+                        }else(
+                                Toast.makeText(
+                                    applicationContext,
+                                    "Wrong password or npisid", Toast.LENGTH_SHORT)
+                                    .show()
+                                )
                     }
-                    if ( loginpw.text.toString() == Shared.getValueString("pw") && idcheck == "Id found " && loginid.text.toString() == Shared.getValueString("id")  ) {
-                        startActivity(Intent(this, LoginActivity::class.java))
-                    }else(
-                            Toast.makeText(
-                                applicationContext,
-                                "Wrong password or npisid", Toast.LENGTH_SHORT)
-                                .show()
-                            )
                 },
                Response.ErrorListener { /*textView.text = "That didn't work!"*/ }) {
                 override fun getParams(): Map<String, String> {
@@ -74,6 +75,7 @@ class MainActivity : AppCompatActivity() {
         SignUP.setOnClickListener {
             startActivity(Intent(this,RegisterActivity::class.java))
         }
+
         executor = ContextCompat.getMainExecutor(this)
         biometricPrompt = BiometricPrompt(this, executor,
             object : BiometricPrompt.AuthenticationCallback() {

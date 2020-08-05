@@ -37,11 +37,11 @@ class DetailedActivity : AppCompatActivity() {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 webViewstd.settings.javaScriptEnabled = true
                 Shared.save("stdid", spinnerlist[p2])
-                val url = "https://script.google.com/macros/s/AKfycbzHVvfi0NTe4cg18QqNcBsitSI2_Xzdp-XeJy7lZIax26T6WXe9/exec?" + "action=studentdatacount" + "&STUDENTID=" + spinnerlist[p2]
+                val url = "https://script.google.com/macros/s/AKfycbxi47Ee3vq94_lU5-46wwLf2qV2bHUdFg0O-l4QOYk2qKgHy0Y/exec?" + "action=studentdatacount" + "&STUDENTID=" + spinnerlist[p2]
                 webViewstd.loadUrl(url)
 
                 val queue = Volley.newRequestQueue(baseContext)
-                val script = "https://script.google.com/macros/s/AKfycbzHVvfi0NTe4cg18QqNcBsitSI2_Xzdp-XeJy7lZIax26T6WXe9/exec?"+"action=getreflectdata"+"&STUDENTID="+ Shared.getValueString("stdid").toString()
+                val script = "https://script.google.com/macros/s/AKfycbxi47Ee3vq94_lU5-46wwLf2qV2bHUdFg0O-l4QOYk2qKgHy0Y/exec?"+"action=getreflectdata"+"&STUDENTID="+ Shared.getValueString("stdid").toString()
 
                 val stringRequest = StringRequest(Request.Method.GET, script,
                     Response.Listener<String> { response ->

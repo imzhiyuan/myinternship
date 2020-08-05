@@ -22,7 +22,7 @@ class LoginActivity : AppCompatActivity() {
 
         val readid = Shared.getValueString("id") as String
 
-        val url = "https://script.google.com/macros/s/AKfycbzHVvfi0NTe4cg18QqNcBsitSI2_Xzdp-XeJy7lZIax26T6WXe9/exec?"+"action=npisreadall"+"&NPISID="+ readid
+        val url = "https://script.google.com/macros/s/AKfycbxi47Ee3vq94_lU5-46wwLf2qV2bHUdFg0O-l4QOYk2qKgHy0Y/exec?"+"action=npisreadall"+"&NPISID="+ readid
         myWebView.loadUrl( url)
 
         Refresh.setOnClickListener {
@@ -34,7 +34,7 @@ class LoginActivity : AppCompatActivity() {
         Detailed.setOnClickListener{
 
             val queue = Volley.newRequestQueue(this)
-            val script = "https://script.google.com/macros/s/AKfycbzHVvfi0NTe4cg18QqNcBsitSI2_Xzdp-XeJy7lZIax26T6WXe9/exec?"+"action=getstudentlist"+"&NPISID="+readid
+            val script = "https://script.google.com/macros/s/AKfycbxi47Ee3vq94_lU5-46wwLf2qV2bHUdFg0O-l4QOYk2qKgHy0Y/exec?"+"action=getstudentlist"+"&NPISID="+readid
 
             val stringRequest = StringRequest(Request.Method.GET, script,
                 Response.Listener<String> { response ->

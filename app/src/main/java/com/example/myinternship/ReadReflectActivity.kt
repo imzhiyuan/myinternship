@@ -29,7 +29,7 @@ class ReadReflectActivity : AppCompatActivity() {
             override fun onItemSelected(p0: AdapterView<*>?, p1: View?, p2: Int, p3: Long) {
                 reflectview.webViewClient = WebViewClient()
                 reflectview.settings.javaScriptEnabled = true
-                val url = "https://script.google.com/macros/s/AKfycbzHVvfi0NTe4cg18QqNcBsitSI2_Xzdp-XeJy7lZIax26T6WXe9/exec?" + "action=read" + "&STUDENTID=" +Shared.getValueString("stdid").toString()+"&Date="+ datedata[p2]
+                val url = "https://script.google.com/macros/s/AKfycbxi47Ee3vq94_lU5-46wwLf2qV2bHUdFg0O-l4QOYk2qKgHy0Y/exec?" + "action=read" + "&STUDENTID=" +Shared.getValueString("stdid").toString()+"&Date="+ datedata[p2]
                 reflectview.loadUrl(url)
             }
 

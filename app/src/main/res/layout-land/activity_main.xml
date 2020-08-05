@@ -28,7 +28,7 @@
         android:id="@+id/LoginID"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="216dp"
+        android:layout_marginTop="60dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/npisid"
@@ -42,13 +42,13 @@
         android:id="@+id/LoginPW"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         android:autofillHints=""
         android:ems="10"
         android:hint="@string/password"
         android:inputType="textPassword"
         app:layout_constraintEnd_toEndOf="@+id/LoginID"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/LoginID"
         app:layout_constraintTop_toBottomOf="@+id/LoginID" />
 
@@ -61,6 +61,6 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.653" />
+        app:layout_constraintVertical_bias="0.737" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
