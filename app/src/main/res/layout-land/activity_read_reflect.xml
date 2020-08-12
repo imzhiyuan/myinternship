@@ -4,40 +4,41 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".LoginActivity">
+    android:visibility="visible"
+    tools:context=".ReadReflectActivity"
+    tools:visibility="visible">
+
+    <Spinner
+        android:id="@+id/datespinner"
+        android:layout_width="409dp"
+        android:layout_height="wrap_content"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.124"
+        tools:visibility="visible" />
 
     <WebView
-        android:id="@+id/webview"
-        android:layout_width="408dp"
-        android:layout_height="603dp"
+        android:id="@+id/reflectview"
+        android:layout_width="734dp"
+        android:layout_height="271dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="281dp"
+        android:layout_height="30dp"
+        android:text=" selecte dates  from drop down box for data"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
-
-    <Button
-        android:id="@+id/Refresh"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Refresh"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.269"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.934" />
-
-    <Button
-        android:id="@+id/Detailed"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Detailed"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.73"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/webview"
-        app:layout_constraintVertical_bias="0.934" />
-
+        app:layout_constraintVertical_bias="0.022" />
 </androidx.constraintlayout.widget.ConstraintLayout>

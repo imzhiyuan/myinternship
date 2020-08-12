@@ -8,8 +8,8 @@
 
     <WebView
         android:id="@+id/webview"
-        android:layout_width="408dp"
-        android:layout_height="603dp"
+        android:layout_width="727dp"
+        android:layout_height="282dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -20,24 +20,24 @@
         android:id="@+id/Refresh"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="Refresh"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.269"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.934" />
+        app:layout_constraintTop_toBottomOf="@+id/webview" />
 
     <Button
         android:id="@+id/Detailed"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
         android:text="Detailed"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.73"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="@+id/webview"
-        app:layout_constraintVertical_bias="0.934" />
+        app:layout_constraintTop_toBottomOf="@+id/webview" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
