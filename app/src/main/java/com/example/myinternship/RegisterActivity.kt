@@ -88,7 +88,12 @@ class RegisterActivity : AppCompatActivity() {
                                 )
                                     .show()
                             },
-                            Response.ErrorListener {}) {
+                            Response.ErrorListener {
+                                Toast.makeText(
+                                    applicationContext,
+                                    "Please enter all the blanks", Toast.LENGTH_SHORT)
+                                    .show()
+                            }) {
                             override fun getParams(): Map<String, String> {
                                 val params: MutableMap<String, String> = HashMap()
                                 params["action"] = "RegisterNPIS"

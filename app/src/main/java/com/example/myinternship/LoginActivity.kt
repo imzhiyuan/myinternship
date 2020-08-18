@@ -4,6 +4,7 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.webkit.WebView
+import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
@@ -41,7 +42,12 @@ class LoginActivity : AppCompatActivity() {
                     Shared.save("stdlist",response)
                     startActivity(Intent(this,DetailedActivity::class.java))
                 },
-                Response.ErrorListener {  })
+                Response.ErrorListener {
+                    Toast.makeText(
+                        applicationContext,
+                        "Please enter all the blanks", Toast.LENGTH_SHORT)
+                        .show()
+                })
             queue.add(stringRequest)
 
 

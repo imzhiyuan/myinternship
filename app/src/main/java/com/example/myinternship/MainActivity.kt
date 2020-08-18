@@ -62,7 +62,11 @@ class MainActivity : AppCompatActivity() {
                                 )
                     }
                 },
-               Response.ErrorListener { /*textView.text = "That didn't work!"*/ }) {
+               Response.ErrorListener {
+                   Toast.makeText(
+                   applicationContext,
+                   "Please enter all the blanks", Toast.LENGTH_SHORT)
+                   .show() }) {
                 override fun getParams(): Map<String, String> {
                     val params: MutableMap<String, String> = HashMap()
                     params["action"] = "search"
@@ -110,9 +114,6 @@ class MainActivity : AppCompatActivity() {
             .setNegativeButtonText("Use account password")
             .build()
 
-        // Prompt appears when user clicks "Log in".
-        // Consider integrating with the keystore to unlock cryptographic operations,
-        // if needed by your app.
         val biometricLoginButton =
             findViewById<Button>(R.id.biologin)
         biometricLoginButton.setOnClickListener {

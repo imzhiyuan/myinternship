@@ -6,6 +6,7 @@ import android.os.Bundle
 import android.view.View
 import android.widget.AdapterView
 import android.widget.ArrayAdapter
+import android.widget.Toast
 import com.android.volley.Request
 import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
@@ -42,22 +43,56 @@ class DetailedActivity : AppCompatActivity() {
                 webViewstd.loadUrl(url)
                 selected = spinnerlist[p2]
 
+                val queue = Volley.newRequestQueue(baseContext)
+                val script = "https://script.google.com/macros/s/AKfycbxi47Ee3vq94_lU5-46wwLf2qV2bHUdFg0O-l4QOYk2qKgHy0Y/exec?"+"action=getreflectdata"+"&STUDENTID="+ spinnerlist[p2]
+
+                val stringRequest = StringRequest(Request.Method.GET, script,
+                    Response.Listener<String> { response ->
+                        Shared.save("datelist",response)
+                    },
+                    Response.ErrorListener {
+                        Toast.makeText(
+                            applicationContext,
+                            "error", Toast.LENGTH_SHORT)
+                            .show()
+                    })
+                queue.add(stringRequest)
+
             }
 
         }
         readreflect.setOnClickListener {
             val queue = Volley.newRequestQueue(baseContext)
-            val script = "https://script.google.com/macros/s/AKfycbxi47Ee3vq94_lU5-46wwLf2qV2bHUdFg0O-l4QOYk2qKgHy0Y/exec?"+"action=getreflectdata"+"&STUDENTID="+ Shared.getValueString("stdid").toString()
+            val script = "https://script.google.com/macros/s/AKfycbxi47Ee3vq94_lU5-46wwLf2qV2bHUdFg0O-l4QOYk2qKgHy0Y/exec?"+"action=getreflectdata"+"&STUDENTID="+ selected
 
             val stringRequest = StringRequest(Request.Method.GET, script,
                 Response.Listener<String> { response ->
                     Shared.save("datelist",response)
                 },
-                Response.ErrorListener {  })
+                Response.ErrorListener {
+                    Toast.makeText(
+                        applicationContext,
+                        "Please enter all the blanks", Toast.LENGTH_SHORT)
+                        .show()
+                })
             queue.add(stringRequest)
             startActivity(Intent(this, ReadReflectActivity::class.java))
         }
         refreshbtn.setOnClickListener {
+            val queue = Volley.newRequestQueue(baseContext)
+            val script = "https://script.google.com/macros/s/AKfycbxi47Ee3vq94_lU5-46wwLf2qV2bHUdFg0O-l4QOYk2qKgHy0Y/exec?"+"action=getreflectdata"+"&STUDENTID="+ selected
+
+            val stringRequest = StringRequest(Request.Method.GET, script,
+                Response.Listener<String> { response ->
+                    Shared.save("datelist",response)
+                },
+                Response.ErrorListener {
+                    Toast.makeText(
+                        applicationContext,
+                        "Please enter all the blanks", Toast.LENGTH_SHORT)
+                        .show()
+                })
+            queue.add(stringRequest)
             val url = "https://script.google.com/macros/s/AKfycbxi47Ee3vq94_lU5-46wwLf2qV2bHUdFg0O-l4QOYk2qKgHy0Y/exec?" + "action=studentdatacount" + "&STUDENTID=" + selected
             webViewstd.loadUrl(url)
         }
