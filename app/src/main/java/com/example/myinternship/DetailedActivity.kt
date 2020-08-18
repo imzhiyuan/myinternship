@@ -16,7 +16,7 @@ class DetailedActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_detailed)
-
+        lateinit var selected : String
         val Shared: Shared = Shared(this)
 
         val stdraw = Shared.getValueString("stdlist") as String
@@ -24,6 +24,7 @@ class DetailedActivity : AppCompatActivity() {
 
         val spinnerlist = stdlist
         val arrayAdapter = ArrayAdapter(this, android.R.layout.simple_spinner_item, spinnerlist)
+
 
         spinnerstdlist.adapter = arrayAdapter
         spinnerstdlist.onItemSelectedListener = object :
@@ -39,21 +40,26 @@ class DetailedActivity : AppCompatActivity() {
                 Shared.save("stdid", spinnerlist[p2])
                 val url = "https://script.google.com/macros/s/AKfycbxi47Ee3vq94_lU5-46wwLf2qV2bHUdFg0O-l4QOYk2qKgHy0Y/exec?" + "action=studentdatacount" + "&STUDENTID=" + spinnerlist[p2]
                 webViewstd.loadUrl(url)
+                selected = spinnerlist[p2]
 
-                val queue = Volley.newRequestQueue(baseContext)
-                val script = "https://script.google.com/macros/s/AKfycbxi47Ee3vq94_lU5-46wwLf2qV2bHUdFg0O-l4QOYk2qKgHy0Y/exec?"+"action=getreflectdata"+"&STUDENTID="+ Shared.getValueString("stdid").toString()
-
-                val stringRequest = StringRequest(Request.Method.GET, script,
-                    Response.Listener<String> { response ->
-                        Shared.save("datelist",response)
-                    },
-                    Response.ErrorListener {  })
-                queue.add(stringRequest)
             }
 
         }
         readreflect.setOnClickListener {
+            val queue = Volley.newRequestQueue(baseContext)
+            val script = "https://script.google.com/macros/s/AKfycbxi47Ee3vq94_lU5-46wwLf2qV2bHUdFg0O-l4QOYk2qKgHy0Y/exec?"+"action=getreflectdata"+"&STUDENTID="+ Shared.getValueString("stdid").toString()
+
+            val stringRequest = StringRequest(Request.Method.GET, script,
+                Response.Listener<String> { response ->
+                    Shared.save("datelist",response)
+                },
+                Response.ErrorListener {  })
+            queue.add(stringRequest)
             startActivity(Intent(this, ReadReflectActivity::class.java))
+        }
+        refreshbtn.setOnClickListener {
+            val url = "https://script.google.com/macros/s/AKfycbxi47Ee3vq94_lU5-46wwLf2qV2bHUdFg0O-l4QOYk2qKgHy0Y/exec?" + "action=studentdatacount" + "&STUDENTID=" + selected
+            webViewstd.loadUrl(url)
         }
     }
 }
