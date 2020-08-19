@@ -74,7 +74,7 @@
         android:id="@+id/textView2"
         android:layout_width="204dp"
         android:layout_height="24dp"
-        android:text=" Please select the school bellow"
+        android:text="@string/please_select_the_school_bellow"
         app:layout_constraintBottom_toTopOf="@+id/RegCourse"
         app:layout_constraintEnd_toEndOf="@+id/RegCourse"
         app:layout_constraintStart_toStartOf="@+id/RegCourse"

@@ -10,7 +10,6 @@ import com.android.volley.Response
 import com.android.volley.toolbox.StringRequest
 import com.android.volley.toolbox.Volley
 import kotlinx.android.synthetic.main.activity_register.*
-import java.io.File
 
 
 class RegisterActivity : AppCompatActivity() {
@@ -21,6 +20,7 @@ class RegisterActivity : AppCompatActivity() {
         lateinit var regcourse : String
 
         val Shared:Shared=Shared(this)
+        val register = findViewById<Button>(R.id.Register)
 
         val regpw = findViewById<EditText>(R.id.RegPW)
         val regid = findViewById<EditText>(R.id.RegID)
@@ -55,7 +55,7 @@ class RegisterActivity : AppCompatActivity() {
         }
 
         // sent data to sever when button pressed
-        Register.setOnClickListener {
+        register.setOnClickListener {
 
             val savepw = regpw.editableText.toString()
             Shared.save("pw", savepw)

@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.widget.Button
 import android.widget.EditText
-import android.widget.TextView
 import android.widget.Toast
 import androidx.biometric.BiometricPrompt
 import androidx.core.content.ContextCompat
@@ -26,6 +25,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
 
+        val login = findViewById<Button>(R.id.Login)
+        val signup = findViewById<Button>(R.id.SignUP)
 
         var idcheck : String?
         val Shared:Shared= Shared(this)
@@ -33,7 +34,7 @@ class MainActivity : AppCompatActivity() {
         val loginpw = findViewById<EditText>(R.id.LoginPW)
 
 
-        Login.setOnClickListener {
+        login.setOnClickListener {
            val queue = Volley.newRequestQueue(this)
             val url = "https://script.google.com/macros/s/AKfycbxi47Ee3vq94_lU5-46wwLf2qV2bHUdFg0O-l4QOYk2qKgHy0Y/exec"
 
@@ -76,7 +77,7 @@ class MainActivity : AppCompatActivity() {
             }
             queue.add(stringRequest)
         }
-        SignUP.setOnClickListener {
+        signup.setOnClickListener {
             startActivity(Intent(this,RegisterActivity::class.java))
         }
 

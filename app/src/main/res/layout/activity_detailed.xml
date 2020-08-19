@@ -30,7 +30,7 @@
         android:id="@+id/readreflect"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Reflections"
+        android:text="@string/reflections"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.791"
@@ -42,7 +42,7 @@
         android:id="@+id/textView"
         android:layout_width="287dp"
         android:layout_height="26dp"
-        android:text="selecte studests from drop down box for data"
+        android:text="@string/selecte_studests_from_drop_down_box_for_data"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -50,10 +50,10 @@
         app:layout_constraintVertical_bias="0.022" />
 
     <Button
-        android:id="@+id/refreshbtn"
+        android:id="@+id/reloadbtn"
         android:layout_width="130dp"
         android:layout_height="47dp"
-        android:text="Rrfersh"
+        android:text="@string/rrfersh"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/readreflect"
         app:layout_constraintHorizontal_bias="0.543"
